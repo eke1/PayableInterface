@@ -1,4 +1,5 @@
 // Invoice class implements Payable.
+import java.lang.Math;
 
 public class Invoice implements Payable
 {
@@ -70,7 +71,7 @@ public class Invoice implements Payable
    {
       return String.format( "%s: \n%s: %s (%s) \n%s: %d \n%s: $%,.2f", 
          "Invoice", "Part number", getPartNumber(), getPartDescription(), 
-         "Quantity", getQuantity(), "Price per item", getPricePerItem() );
+         "Quantity", getQuantity(), "Price per item", (double) Math.round(getPricePerItem()) );
    } 
 
    // method required to carry out contract with interface Payable
@@ -79,3 +80,4 @@ public class Invoice implements Payable
       return getQuantity() * getPricePerItem(); // calculate total cost
    }
 } 
+
